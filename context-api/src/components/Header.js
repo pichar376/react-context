@@ -1,4 +1,4 @@
-const Header = ({theme,handleTheme,texts,handleLanguage}) => {
+const Header = ({theme,handleTheme,texts,handleLanguage,auth,handleAuth}) => {
 
   
   
@@ -14,7 +14,7 @@ const Header = ({theme,handleTheme,texts,handleLanguage}) => {
       <label htmlFor="light">{texts.headerLight}</label>
       <input type="radio" name="theme"id="dark"value="dark" onClick={handleTheme}/>
       <label htmlFor="dark">{texts.headerDark}</label>
-      <button>{texts.buttonLogin}{texts.loguinLogout}</button>
+      <button onClick={handleAuth}>{auth?texts.buttonLogout:texts.buttonLogin}</button>
 
 
       </header></div>

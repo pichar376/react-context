@@ -37,7 +37,11 @@ const translations = {
 const MyPage = () => {
   const [theme, setTheme] = useState(initialTheme);
   const [language, setLanguage] = useState(initialLanguage);
+
   const [texts, setTexts] = useState(translations[language]);
+
+  const [auth, setAuth] = useState(null);
+
   const handleTheme=(e)=>{
     console.log(e.target.value)
     if(e.target.value==="light"){
@@ -56,11 +60,19 @@ const MyPage = () => {
       setTexts(translations.en)
     }
   }
-  return ( 
+
+ const  handleAuth=()=>{
+    if(auth){
+    setAuth(null)
+    }else{
+      setAuth(true)
+    }
+  }
+    return ( 
     <div className="my-page">
-    <Header theme={theme} handleTheme={handleTheme}  texts={texts} handleLanguage={handleLanguage}/>
+    <Header theme={theme} handleTheme={handleTheme}  texts={texts} handleLanguage={handleLanguage}auth={auth} handleAuth={handleAuth}/>
       
-      <Main theme={theme} texts={texts}/>
+      <Main theme={theme} texts={texts}auth={auth}/>
       
       <Footer theme={theme} texts={texts}/>
     </div>

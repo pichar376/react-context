@@ -1,9 +1,11 @@
-const Main = ({theme,texts}) => {
+
+
+const Main = ({theme,texts,auth}) => {
   return ( 
     <div>
       <main className={theme}>
-        <p>{texts.mainWelcome}</p>
-        <p>{texts.mainHello}</p>
+        {auth?<p>{texts.mainWelcome}</p>:
+        <p>{texts.mainHello}</p>}
    <p>{texts.mainContent}</p>
       </main>
     </div>
